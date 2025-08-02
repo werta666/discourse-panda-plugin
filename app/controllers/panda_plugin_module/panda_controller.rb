@@ -4,18 +4,42 @@ module ::PandaPluginModule
   class PandaController < ::ApplicationController
     requires_plugin PLUGIN_NAME
     layout false
+    skip_before_action :verify_authenticity_token
 
     def index
+      # Simple debug first
+      Rails.logger.info "🐼 Panda Controller accessed"
+
+      # Check if plugin is enabled
+      unless SiteSetting.panda_plugin_enabled
+        render plain: "Panda Plugin is disabled. Please enable it in Admin → Settings → Plugins", status: 403
+        return
+      end
+
       @panda_data = get_panda_data
+      Rails.logger.info "🐼 Panda data loaded: #{@panda_data.keys}"
 
       respond_to do |format|
-        format.html { render_panda_page }
-        format.json { render json: @panda_data }
+        format.html {
+          Rails.logger.info "🐼 Rendering HTML"
+          render_panda_page
+        }
+        format.json {
+          Rails.logger.info "🐼 Rendering JSON"
+          render json: @panda_data
+        }
       end
+    rescue => e
+      Rails.logger.error "🐼 Panda Plugin Error: #{e.message}"
+      Rails.logger.error e.backtrace.join("\n")
+      render plain: "Error: #{e.message}", status: 500
     end
 
     def api_data
       render json: get_panda_data
+    rescue => e
+      Rails.logger.error "Panda API Error: #{e.message}"
+      render json: { error: e.message }, status: 500
     end
 
     private
@@ -50,7 +74,8 @@ module ::PandaPluginModule
     end
 
     def render_panda_page
-      render html: panda_html_content.html_safe
+      # Very simple test to ensure it works
+      render plain: "🐼 Panda Paradise is working! Plugin is enabled and responding."
     end
 
     def panda_html_content
