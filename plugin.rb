@@ -17,8 +17,8 @@ end
 require_relative "lib/panda_plugin_module/engine"
 
 after_initialize do
-  # 按照官方标准添加路由
+  # 挂载 Engine 到 /panda 路径
   Discourse::Application.routes.append do
-    get '/panda' => 'panda_plugin_module/panda#index'
+    mount ::PandaPluginModule::Engine, at: "/panda"
   end
 end

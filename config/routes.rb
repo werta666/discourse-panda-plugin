@@ -1,4 +1,7 @@
 # frozen_string_literal: true
 
-# Routes are now defined directly in plugin.rb
-# This file is kept for reference but not used
+PandaPluginModule::Engine.routes.draw do
+  get "/" => "panda#index"
+  get ".json" => "panda#index"
+  get "/test" => "test#index"
+end
