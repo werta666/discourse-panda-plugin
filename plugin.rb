@@ -14,9 +14,11 @@ module ::PandaPluginModule
   PLUGIN_NAME = "discourse-panda-plugin"
 end
 
+require_relative "lib/panda_plugin_module/engine"
+
 after_initialize do
-  # 按照教程标准添加路由
+  # 按照官方标准添加路由
   Discourse::Application.routes.append do
-    get '/panda' => 'panda#index'
+    get '/panda' => 'panda_plugin_module/panda#index'
   end
 end
