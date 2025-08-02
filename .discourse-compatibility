@@ -1,0 +1,5 @@
+# Discourse Compatibility File
+# This file specifies which versions of Discourse this plugin is compatible with
+
+# Compatible with Discourse 3.1.0 and above
+3.1.0.beta1: 0.0.1

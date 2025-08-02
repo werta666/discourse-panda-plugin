@@ -1,0 +1,5 @@
+panda_plugin:
+  panda_plugin_enabled:
+    default: true
+    client: true
+    description: "Enable the Panda Plugin to access /panda page"

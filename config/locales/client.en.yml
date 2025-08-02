@@ -1,0 +1,25 @@
+en:
+  admin_js:
+    admin:
+      site_settings:
+        categories:
+          panda_plugin: "Panda Plugin"
+  js:
+    panda_plugin:
+      title: "Panda Paradise"
+      subtitle: "Welcome to the amazing world of pandas!"
+      menu_link: "🐼 Panda Paradise"
+      features:
+        cute_pandas: "Cute Pandas"
+        bamboo_facts: "Bamboo Facts"
+        conservation: "Conservation"
+      stats:
+        title: "Panda Statistics"
+        pandas_worldwide: "Pandas Worldwide"
+        bamboo_daily: "Bamboo Daily"
+        status: "Status"
+      interactive:
+        title: "Interactive Panda Zone"
+        description: "Click the button below to learn a random panda fact!"
+        button: "🐼 Tell me a panda fact!"
+      back_link: "← Back to Forum"
