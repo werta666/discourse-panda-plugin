@@ -1,0 +1,39 @@
+<div class="panda-page">
+  <div class="panda-header">
+    <h1>🐼 {{model.message}}</h1>
+    <p>Status: {{model.status}}</p>
+    <p>Time: {{model.time}}</p>
+  </div>
+  
+  <div class="panda-content">
+    <div class="panda-card">
+      <h2>🎋 Welcome to Panda Paradise!</h2>
+      <p>This is a custom Discourse plugin page built with Ember v5.12.0</p>
+      
+      <div class="panda-stats">
+        <h3>🐼 Panda Facts</h3>
+        <ul>
+          <li>Pandas spend 14-16 hours a day eating bamboo!</li>
+          <li>Baby pandas are about the size of a stick of butter when born!</li>
+          <li>Pandas have a pseudo-thumb to help them grip bamboo.</li>
+        </ul>
+      </div>
+      
+      <button class="btn btn-primary panda-btn" {{on "click" this.showRandomFact}}>
+        🐼 Show Random Fact
+      </button>
+      
+      {{#if this.randomFact}}
+        <div class="panda-fact">
+          {{this.randomFact}}
+        </div>
+      {{/if}}
+    </div>
+  </div>
+  
+  <div class="panda-footer">
+    <LinkTo @route="discovery.latest" class="btn btn-default">
+      ← Back to Forum
+    </LinkTo>
+  </div>
+</div>

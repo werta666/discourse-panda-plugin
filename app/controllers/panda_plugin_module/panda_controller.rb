@@ -8,8 +8,20 @@ module ::PandaPluginModule
       Rails.logger.info "🐼 Panda Controller accessed!"
 
       respond_to do |format|
-        format.html { render_panda_html }
-        format.json { render json: { message: "🐼 Panda Paradise", status: "working", time: Time.current } }
+        format.html {
+          # For Ember v5.12.0, we need to bootstrap the Ember app
+          # This will load the Ember route and template
+          render "default/empty"
+        }
+        format.json {
+          render json: {
+            message: "🐼 Panda Paradise",
+            status: "working",
+            time: Time.current,
+            ember_version: "v5.12.0",
+            plugin_version: "0.0.1"
+          }
+        }
       end
     rescue => e
       Rails.logger.error "🐼 Panda Error: #{e.message}"

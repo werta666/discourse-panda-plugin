@@ -10,6 +10,9 @@
 
 enabled_site_setting :panda_plugin_enabled
 
+# Register assets for Ember v5.12.0
+register_asset "stylesheets/panda-plugin.scss"
+
 module ::PandaPluginModule
   PLUGIN_NAME = "discourse-panda-plugin"
 end
