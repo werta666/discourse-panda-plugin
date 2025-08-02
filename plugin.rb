@@ -14,8 +14,14 @@ module ::PandaPluginModule
   PLUGIN_NAME = "discourse-panda-plugin"
 end
 
-require_relative "lib/panda_plugin_module/engine"
+# Engine not needed for simple routing
 
 after_initialize do
-  # Code which should run after Rails has finished booting
+  # Register routes directly in Discourse
+  Discourse::Application.routes.append do
+    get "/panda" => "panda#index"
+    get "/panda/test" => "panda#test"
+    get "/panda/api" => "panda#api_data"
+    get "/test-panda" => "test_panda#index"
+  end
 end

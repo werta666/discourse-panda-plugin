@@ -2,7 +2,7 @@
 
 module ::PandaPluginModule
   class PandaController < ::ApplicationController
-    requires_plugin PLUGIN_NAME
+    requires_plugin "discourse-panda-plugin"
     layout false
     skip_before_action :verify_authenticity_token
 

@@ -2,7 +2,7 @@
 
 module ::PandaPluginModule
   class TestController < ::ApplicationController
-    requires_plugin PLUGIN_NAME
+    requires_plugin "discourse-panda-plugin"
     skip_before_action :verify_authenticity_token
 
     def index
