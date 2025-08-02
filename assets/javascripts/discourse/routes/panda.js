@@ -1,8 +1,13 @@
 import Route from "@ember/routing/route";
-import { ajax } from "discourse/lib/ajax";
 
 export default class PandaRoute extends Route {
   model() {
-    return ajax("/panda.json");
+    return {
+      message: "🐼 Panda Paradise",
+      status: "working",
+      time: new Date().toLocaleString(),
+      ember_version: "v5.12.0",
+      plugin_version: "0.0.1"
+    };
   }
 }
