@@ -14,14 +14,9 @@ module ::PandaPluginModule
   PLUGIN_NAME = "discourse-panda-plugin"
 end
 
-# Engine not needed for simple routing
-
 after_initialize do
-  # Register routes directly in Discourse
+  # 按照教程标准添加路由
   Discourse::Application.routes.append do
-    get "/panda" => "panda#index"
-    get "/panda/test" => "panda#test"
-    get "/panda/api" => "panda#api_data"
-    get "/test-panda" => "test_panda#index"
+    get '/panda' => 'panda#index'
   end
 end
